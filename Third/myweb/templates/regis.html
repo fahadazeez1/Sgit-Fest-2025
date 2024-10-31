@@ -73,22 +73,23 @@
 <body>
     <div class="register-container">
         <h2>Register</h2>
-        <form action="your_registration_handler" method="POST">
-
-            <input type="text" placeholder="Username" name="username" required>
-            <input type="email" placeholder="Email" name="email" required>
+        <form action="{% url 'home' %}" method="POST">
+<!-- {% csrf_token %} -->
+{% csrf_token %}
+            <input type="text" placeholder="Username" name="username" >
+            <input type="email" placeholder="Email" name="email" >
             <!-- <input type="password" placeholder="Password" name="password" required> -->
             <!-- <input type="password" placeholder="Confirm Password" name="confirm_password" required> -->
              <input type="date" name="dob" id="" placeholder="Enter DOB">
              <select name="games" id="" class="select">
-                <optgroup label="Single Player Games">
-                  <option value="volvo">Long jump</option>
-                  <option value="saab">Race</option>
-                </optgroup>
-                <optgroup label="Multi Player Games">
-                  <option value="mercedes">Basket Ball</option>
-                  <option value="audi">Cricket</option>
-                </optgroup>
+                
+                  <option value="jump">Long jump</option>
+                  <option value="race">Race</option>
+              
+               
+                  <option value="bb">Basket Ball</option>
+                  <option value="crick">Cricket</option>
+       
               </select>
 
             <button type="submit">Register</button>

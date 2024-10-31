@@ -22,6 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("",starthome,name='home'),
     path('regis',toreg,name='reg'),
-    path('index',toindex,name='ind')
+    path('index',toindex,name='ind'),
+    path('obj',obj,name='obj')
 
 ]
