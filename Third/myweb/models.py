@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.core.exceptions import ValidationError
 # Create your models here.
 class Registration(models.Model):
     name=models.CharField(max_length=78)
@@ -15,7 +15,7 @@ class Registration(models.Model):
     
 class Registration2(models.Model):
     name=models.CharField(max_length=78)
-    email=models.EmailField()
+    email=models.EmailField(primary_key=True)
     dob=models.DateField()
     GAME_CHOICES = [
         ('jump', 'Long jump'),
@@ -24,3 +24,8 @@ class Registration2(models.Model):
         ('crick', 'Cricket'),
     ]
     game = models.CharField(max_length=10, choices=GAME_CHOICES, default='jump')    
+    def saves(self, *args, **kwargs):
+        # Check for duplicate email
+        if Registration2.objects.filter(email=self.email).exists() and not self.pk:
+            raise ValidationError("This email is already registered.")
+        super().save(*args, **kwargs)

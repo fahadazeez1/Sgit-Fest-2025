@@ -489,6 +489,12 @@ footer .questions {
 
 
 
+.trans{
+    /* filter: brightness(0) invert(1); */
+    mix-blend-mode: multiply;
+    opacity: 0.8;
+}
+
 
 
 
@@ -502,19 +508,29 @@ footer .questions {
     <div class="main" id="sti" >
         <nav >
             <!-- <span><img width="53" src="sanslogo.jpg" alt="gaag"></span> -->
-            <img width="53" src="/static/sanslogo.jpg" alt="gaag">
+            <img width="53" src="/static/sanslogo.jpg" alt="gaag" class="trans">
             <div>
-                <!-- <button class="btn color black bakk widd" >Theme</button> -->
-<a href="admin">
+                <a href="tonav">
+
+                    <button class="btn color black bakk widd" >Login</button>
+                </a>
+                <!-- <a href="tologadmin">
+
+                    <button class="btn color black bakk widd" >Login</button>
+                </a> -->
 
 
-    <button class="btn widd">Admin</button>
-</a>
+
                 <a href="regis">
                 
                     <button class="btn btn-red-sm widd">Register</button>
                 </a>
                     
+<!-- <a href="admin">
+
+
+    <button class="btn widd">Admin</button>
+</a> -->
 
             </div>
 
@@ -697,7 +713,7 @@ footer .questions {
         <center >Designed With 💗By Fahad Azeez </center>
       
     </footer>
-    <script src="spck_theme.js"></script>
+    <script src="static/spck.js"></script>
     <script src="spck_faq.js"></script>
     <script>
         AOS.init();

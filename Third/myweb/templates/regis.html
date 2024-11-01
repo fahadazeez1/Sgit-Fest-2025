@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,14 +7,35 @@
     <title>Register Page</title>
     <style>
         body {
-            display: flex;
+            /* display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: center; */
             height: 100vh;
             background-color: #f0f2f5;
             font-family: Arial, sans-serif;
         }
+        .preold{
+            background-image: url('static/images.jpeg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 100%;
+            /* filter: blur(5px); */
+            
+           
+        }
+        .old{
+            /* position: relative; */
+            z-index: 1;
+            /* margin-top: 50px; */
+            display: flex;
+            align-items: center;
+            justify-content: center; 
+           
+        }
         .register-container {
+            
+            /* z-index: 45; */
+            margin-top: 50px;
             width: 300px;
             padding: 2rem;
             background-color: white;
@@ -45,7 +67,7 @@
             font-size: 1rem;
         }
          .select{
-            width: 107%;
+            /* width: 107%; */
             padding: 10px;
             
             margin: 8px 0;
@@ -77,25 +99,149 @@
         .register-container .login-link:hover {
             text-decoration: underline;
         }
+
+
+
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+    color: #fff;
+}
+
+.logo {
+    font-size: 1.5em;
+    color: #ff6600;
+}
+
+.nav-links {
+    display: flex;
+    list-style-type: none;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+    transition: background-color 0.3s;
+}
+
+.nav-links a:hover {
+    background-color: #ff6600;
+    border-radius: 5px;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #fff;
+}
+
+.dropdown-menu {
+    display: none;
+    background-color: #333;
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    width: 150px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+
+.dropdown-menu a {
+    display: block;
+    color: #fff;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.dropdown-menu a:hover {
+    background-color: #ff6600;
+}
+
+.show {
+    display: block;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    .menu-toggle {
+        display: block;
+    }
+}
+
+
     </style>
 </head>
 <body>
+    
+    <nav class="navbar">
+        <div class="logo">MyLogo</div>
+        <ul class="nav-links">
+            <li><a href="index">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="tologadmin">Login</a></li>
+        </ul>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    </nav>
+    
+    <!-- Dropdown Menu for Mobile -->
+    <div class="dropdown-menu" id="dropdown">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </div>
+    
+    <script>
+        function toggleMenu() {
+            var dropdown = document.getElementById('dropdown');
+            dropdown.classList.toggle('show');
+        }
+    </script>
+    
+<div class="preold">
+
+<div class="old">
+
+
+
     <div class="register-container">
-        <h2>Register</h2>
+        <h2>Register For Game</h2>
+        {% if error_message %}
+    <div style="color: red;">
+        {{ error_message }}
+    </div>
+{% endif %}
         <form action="{% url 'reg' %}" method="POST">
-            {% if error_message %}
-        <div style="color: red;">
-            {{ error_message }}
-        </div>
-    {% endif %}
 <!-- {% csrf_token %} -->
 {% csrf_token %}
-            <input type="text" placeholder="Enter your Name" name="username" >
-            <input type="email" placeholder="Enter your Email" name="email" >
+            <input type="text" placeholder="Enter your Name" name="username"  required>
+            <input type="email" placeholder="Enter your Email" name="email" required>
             <!-- <input type="password" placeholder="Password" name="password" required> -->
             <!-- <input type="password" placeholder="Confirm Password" name="confirm_password" required> -->
-             <input type="date" name="dob" id="" placeholder="Enter your  DOB">
-             <select name="games" id="" class="select">
+             <input type="date" name="dob" id="" placeholder="Enter your  DOB" required>
+             <select name="games" id="" class="select" required>
                 
                   <option value="jump">Long jump</option>
                   <option value="race">Race</option>
@@ -110,6 +256,7 @@
         </form>
         <!-- <a href="/login" class="login-link">Already have an account? Login</a> -->
         <a href="index" class="login-link">Go To Home Page</a>
-    </div>
+    </div></div>
+</div>
 </body>
 </html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You for Registration</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff; /* Light blue background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full viewport height */
+        }
+
+        .container {
+            text-align: center;
+            background-color: #ffffff; /* White background for the content */
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px; /* Limit the width for better responsiveness */
+            margin: auto;
+        }
+
+        h1 {
+            color: #4CAF50; /* Green for the heading */
+        }
+
+        p {
+            color: #555; /* Dark gray for the paragraph */
+        }
+
+        button {
+            background-color: #4CAF50; /* Green button */
+            color: white; /* White text */
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+        }
+
+        button:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+
+        /* Responsive design */
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+                max-width: 90%; /* Allow for wider content on smaller screens */
+            }
+
+            h1 {
+                font-size: 24px; /* Adjust heading size */
+            }
+
+            p {
+                font-size: 16px; /* Adjust paragraph size */
+            }
+
+            button {
+                font-size: 14px; /* Adjust button size */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Thank You for Registering!</h1>
+        <p>Your registration has been successfully completed.</p>
+        <a href="index">
+
+            <button>Go to Home</button>
+        </a>
+    </div>
+</body>
+</html>

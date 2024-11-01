@@ -23,6 +23,8 @@ urlpatterns = [
     path("",starthome,name='home'),
     path('regis',toreg,name='reg'),
     path('index',toindex,name='ind'),
-    path('toreg',obj,name='obj')
+    path('toreg',obj,name='obj'),
+    path('tologadmin',tologadmin,name='tologadmin'),
+    path('tonav',tonav,name='tonav')
 
 ]

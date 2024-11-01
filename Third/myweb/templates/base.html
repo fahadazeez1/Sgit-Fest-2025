@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+               * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+    color: #fff;
+}
+
+.logo {
+    font-size: 1.5em;
+    color: #ff6600;
+}
+
+.nav-links {
+    display: flex;
+    list-style-type: none;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+    transition: background-color 0.3s;
+}
+
+.nav-links a:hover {
+    background-color: #ff6600;
+    border-radius: 5px;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #fff;
+}
+
+.dropdown-menu {
+    display: none;
+    background-color: #333;
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    width: 150px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+
+.dropdown-menu a {
+    display: block;
+    color: #fff;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.dropdown-menu a:hover {
+    background-color: #ff6600;
+}
+
+.show {
+    display: block;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    .menu-toggle {
+        display: block;
+    }
+}
+
+{% block css %}
+{% endblock %} 
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">MyLogo</div>
+        <ul class="nav-links">
+            <li><a href="index">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="tonav">Login</a></li>
+        </ul>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    </nav>
+    
+    <!-- Dropdown Menu for Mobile -->
+    <div class="dropdown-menu" id="dropdown">
+        <a href="index">Home</a>
+        <a href="#about">About</a>
+        <a href="tologadmin">Login</a>
+    </div>
+    
+    <script>
+        function toggleMenu() {
+            var dropdown = document.getElementById('dropdown');
+            dropdown.classList.toggle('show');
+        }
+    </script>
+    {% block content %}
+    {% endblock %}
+    
+</body>
+</html>
