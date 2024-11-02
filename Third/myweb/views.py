@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect,HttpResponse
 from django.contrib import admin
 from myweb import models
-from myweb.models import Registration2
+from myweb.models import Registration2 , basket
 from django.core.exceptions import ValidationError
 from django.db import IntegrityError
 from django.contrib.auth import authenticate
@@ -31,7 +31,7 @@ def toreg(request):
         try:
             registration = Registration2(name=name, email=email, dob=dob, game=game)
             registration.saves()
-            return render(request, 'thnks.html')
+            return render(request, 'newthx.html')
         except ValidationError as e:
             return render(request, 'regis.html', {'error_message': str(e)})
         except IntegrityError:
@@ -87,6 +87,8 @@ def tonav(request):
             auth_login(request, user)  # Logs the user in and creates a session
             return redirect('/admin/')  # Redirect to the admin/main page
         else:
+            messages.add_message(request, messages.ERROR, "Invalid username or password.")
+
             # messages.error(request, "Invalid username or password.")  # Error for invalid credentials
             return render(request, 'asa.html')
     return render(request,'asa.html')
@@ -109,3 +111,62 @@ def login(request):
             return render(request, 'login.html')  # Stay on login page with error message
 
     return render(request, "login.html")
+
+
+
+
+def tobasket(request):
+    if request.method=="POST":
+        teamname=request.POST.get('teamname')
+        captain=request.POST.get('captain')
+        mob=request.POST.get('mob')
+        # player1=request.POST.get('player1')
+        player2=request.POST.get('username2')
+        player3=request.POST.get('username3')
+        player4=request.POST.get('username4')
+        player5=request.POST.get('username5')
+        player6=request.POST.get('username6')
+        player7=request.POST.get('username7')
+        player8=request.POST.get('username8')
+        player9=request.POST.get('username9')
+        player10=request.POST.get('username10')
+
+        try:
+            reg = basket(teamname=teamname, captain=captain, mob=mob, player2=player2, 
+                         player3=player3, player4=player4, player5=player5, player6=player6,
+                         player7=player7, player8=player8, player9=player9, player10=player10)
+            reg.save()
+            return render(request, 'baskeetball.html', {'success': "Team registered successfully!"})
+        except (IntegrityError, ValidationError) as e:
+            return render(request, 'baskeetball.html', {'error_message': str(e)})
+
+    return render(request, 'baskeetball.html')
+
+def basthk(request):
+    if request.method=="POST":
+        teamname=request.POST.get('teamname')
+        captain=request.POST.get('captain')
+        mob=request.POST.get('mob')
+        # player1=request.POST.get('player1')
+        player2=request.POST.get('username2')
+        player3=request.POST.get('username3')
+        player4=request.POST.get('username4')
+        player5=request.POST.get('username5')
+        player6=request.POST.get('username6')
+        player7=request.POST.get('username7')
+        player8=request.POST.get('username8')
+        player9=request.POST.get('username9')
+        player10=request.POST.get('username10')
+        context={
+            'name':teamname
+        }
+        try:
+            reg = basket(teamname=teamname, captain=captain, mob=mob, player2=player2, 
+                         player3=player3, player4=player4, player5=player5, player6=player6,
+                         player7=player7, player8=player8, player9=player9, player10=player10)
+            reg.save()
+            return render(request, 'newthx.html', context=context)
+        except (IntegrityError, ValidationError) as e:
+            return render(request, 'baskeetball.html', {'error_message': str(e)})
+    return render(request,'newthx.html')
+

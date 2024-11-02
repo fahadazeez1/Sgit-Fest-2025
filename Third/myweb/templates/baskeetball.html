@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+
+
+{% block css %}
+body {
+    height: 100vh;
+    background-color: #f0f2f5;
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+
+.preold {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('static/images.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 110%; /* Full viewport height for centering */
+}
+
+.register-container {
+
+    
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.register-container h2 {
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.input-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.input-row input {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.login-link {
+    display: block;
+    margin-top: 15px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.login-link:hover {
+    text-decoration: underline;
+}
+
+/* Responsive layout */
+@media (max-width: 600px) {
+    .input-row {
+        flex-direction: column;
+    }
+}
+{% endblock %}
+
+{% block content %}
+
+
+    <div class="preold">
+        <div class="old">
+            <div class="register-container">
+                <h2>Register For Basket Ball</h2>
+                {% if error_message %}
+                <div style="color: red;">
+                    {{ error_message }}
+                </div>
+                {% endif %}
+                <form action="{% url 'bas' %}" method="POST">
+                    {% csrf_token %}
+                    <div class="input-row">
+                        <input type="text" placeholder="Team Name " name="teamname" required>
+                    </div>
+                    <div class="input-row">
+                        <input type="text" placeholder="Captain Name" name="captain" required>
+                        <input type="number" name="mob" placeholder="Captain Mobile Number" required>
+                    </div>
+                    <div class="input-row">
+                        <input type="text" placeholder="Player 2" name="username2" required>
+                        <input type="text" placeholder="Player 3" name="username3" required>
+                    </div>
+                    <div class="input-row">
+                        <input type="text" placeholder="Player 4" name="username4" required>
+                        <input type="text" placeholder="Player 5" name="username5" required>
+                    </div>
+                    <div class="input-row">
+                        <input type="text" placeholder="Player 6" name="username6">
+                        <input type="text" placeholder="Player 7" name="username7">
+                    </div>
+                    <div class="input-row">
+                        <input type="text" placeholder="Player 8" name="username8">
+                        <input type="text" placeholder="Player 9" name="username9">
+                    </div>
+                    <div class="input-row">
+                        <input type="text" placeholder="Player 10" name="username10">
+                    </div>
+                    <button type="submit">Register</button>
+                </form>
+                <a href="index" class="login-link">Go To Home Page</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -22,9 +22,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("",starthome,name='home'),
     path('regis',toreg,name='reg'),
+    path('thx',basthk,name='bas'),
     path('index',toindex,name='ind'),
     path('toreg',obj,name='obj'),
     path('tologadmin',tologadmin,name='tologadmin'),
-    path('tonav',tonav,name='tonav')
+    path('tonav',tonav,name='tonav'),
+    path('tobasket',tobasket,name='basket')
 
 ]

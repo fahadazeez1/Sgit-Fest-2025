@@ -14,7 +14,10 @@
             background-color: #f0f2f5;
             font-family: Arial, sans-serif;
         }
-        .preold{
+         .preold{
+        /*    display: flex;
+            align-items: center;
+            justify-content: center; */
             background-image: url('static/images.jpeg');
             background-size: cover;
             background-repeat: no-repeat;
@@ -24,19 +27,23 @@
            
         }
         .old{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
             /* position: relative; */
             z-index: 1;
             /* margin-top: 50px; */
-            display: flex;
-            align-items: center;
-            justify-content: center; 
            
         }
         .register-container {
             
+            /* display: flex;
+            align-items: center;
+            justify-content: center;  */
             /* z-index: 45; */
             margin-top: 50px;
-            width: 300px;
+            width: 60%;
             padding: 2rem;
             background-color: white;
             border-radius: 8px;
@@ -199,6 +206,22 @@ body {
     background-size: cover;
    
 }
+.papa{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.box {
+    display: flex;
+    gap: 10px;          /* Adds space between input fields */
+    margin-bottom: 15px; /* Space between rows */
+}
+.box input {
+    flex: 1;            /* Ensures equal width for input fields */
+    padding: 10px;
+    font-size: 16px;
+}
     </style>
 </head>
 <body>
@@ -243,27 +266,69 @@ body {
         <form action="{% url 'reg' %}" method="POST">
 <!-- {% csrf_token %} -->
 {% csrf_token %}
-            <input type="text" placeholder="Enter your Name" name="username"  required>
-            <input type="email" placeholder="Enter your Email" name="email" required>
-            <!-- <input type="password" placeholder="Password" name="password" required> -->
-            <!-- <input type="password" placeholder="Confirm Password" name="confirm_password" required> -->
-             <input type="date" name="dob" id="" placeholder="Enter your  DOB" required>
-             <select name="games" id="" class="select" required>
-                
-                  <option value="jump">Long jump</option>
-                  <option value="race">Race</option>
-              
-               
-                  <option value="bb">Basket Ball</option>
-                  <option value="crick">Cricket</option>
-       
-              </select>
+<div class="papa">
 
-            <button type="submit">Register</button>
-        </form>
-        <!-- <a href="/login" class="login-link">Already have an account? Login</a> -->
-        <a href="index" class="login-link">Go To Home Page</a>
-    </div></div>
+    <div class="box">
+        
+        
+        <input type="text" placeholder="Captain Name" name="username1"  required>
+        <input type="number" name="mob" id="" placeholder="captain mobile number" required>
+        
+    </div>
+    <div class="box">
+        
+        <input type="text" placeholder="Player 2" name="username2"  required>
+    <input type="text" placeholder="Player 3" name="username3"  required>
 </div>
+<div class="box">
+    
+    <input type="text" placeholder="Player 4" name="username4"  required>
+    <input type="text" placeholder="Player 5" name="username5"  required>
+</div>
+<div class="box">
+    
+    <input type="text" placeholder="Player 7" name="username7"  >
+    <input type="text" placeholder="Player 8" name="username8"  >
+</div>
+<div class="box">
+    
+    <input type="text" placeholder="Player 6" name="username6"  >
+    <input type="text" placeholder="Player 9" name="username9"  >
+</div>
+<input type="text" placeholder="Player 10" name="username10"  >
+<!-- <input type="email" placeholder="Enter your Email" name="email" required> -->
+<!-- <input type="password" placeholder="Password" name="password" required> -->
+<!-- <input type="password" placeholder="Confirm Password" name="confirm_password" required> -->
+
+</div>
+<button type="submit">Register</button>
+</form>
+<!-- <a href="/login" class="login-link">Already have an account? Login</a> -->
+<a href="index" class="login-link">Go To Home Page</a>
+</div></div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>

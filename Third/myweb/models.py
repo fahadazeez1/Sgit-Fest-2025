@@ -29,3 +29,20 @@ class Registration2(models.Model):
         if Registration2.objects.filter(email=self.email).exists() and not self.pk:
             raise ValidationError("This email is already registered.")
         super().save(*args, **kwargs)
+
+
+class basket(models.Model):
+    teamname=models.CharField(max_length=45,primary_key=True)
+    mob=models.IntegerField()
+    captain=models.CharField(max_length=45)
+    # player1=models.CharField(max_length=45)
+    player2=models.CharField(max_length=45)
+    player3=models.CharField(max_length=45)
+    player4=models.CharField(max_length=45)
+    player5=models.CharField(max_length=45)
+    player6=models.CharField(max_length=45)
+    player7=models.CharField(max_length=45)
+    player8=models.CharField(max_length=45)
+    player9=models.CharField(max_length=45)
+    player10=models.CharField(max_length=45)
+
